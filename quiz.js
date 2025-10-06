@@ -1,4 +1,4 @@
-//
+
 document.addEventListener("DOMContentLoaded", function () {
   // Load saved progress on page load
   const savedProgress = JSON.parse(localStorage.getItem("quizProgress"));
@@ -1149,7 +1149,7 @@ setInterval(monitorLiquidAnimations, 200);
 //
 
 
-
+//
 //Safari forceful video autoplay
 document.addEventListener("DOMContentLoaded", function () {
   let bgVideos = document.querySelectorAll("video");
@@ -1166,7 +1166,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //
 
 
-
+//
 //confetti animation
 function launchConfetti() {
   const duration = 2 * 1000; // 2 seconds
@@ -1201,7 +1201,7 @@ function launchConfetti() {
 }
 //
 
-
+//
 //Faux radio button code
 document.addEventListener('DOMContentLoaded', () => {
   // safe CSS.escape fallback
@@ -1284,3 +1284,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+//
