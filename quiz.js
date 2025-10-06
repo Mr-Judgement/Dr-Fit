@@ -1,4 +1,4 @@
-
+//
 document.addEventListener("DOMContentLoaded", function () {
   // Load saved progress on page load
   const savedProgress = JSON.parse(localStorage.getItem("quizProgress"));
@@ -673,6 +673,10 @@ function removeAllEventListeners() {
     });
   });
 });
+//
+
+
+//
 
 (function() {
   // Select all form step elements
@@ -736,6 +740,11 @@ function removeAllEventListeners() {
   document.head.appendChild(style);
 })();
 
+//
+
+
+
+//
 //code to prevent sliders glitching
   document.querySelectorAll('.slider').forEach(slider => {
     slider.addEventListener('touchstart', (e) => {
@@ -754,8 +763,9 @@ function removeAllEventListeners() {
       e.stopPropagation();
     });
   });
+//
 
-
+//
   // Blur the slider when clicking/tapping outside of it
   document.addEventListener('pointerdown', (e) => {
     const active = document.activeElement;
@@ -771,11 +781,11 @@ function removeAllEventListeners() {
       active.blur();
     }
   }, { passive: true });
+//
 
 
 
-
-
+//
 //little progress bars
 (function() {
   // --- COLOR HELPER ---
@@ -949,11 +959,11 @@ function removeAllEventListeners() {
 
   monitorFormSteps();
 })();
+//
 
 
 
-
-
+//
 // ==========================
 // Liquid Filling Animation
 // ==========================
@@ -1109,7 +1119,10 @@ function monitorLiquidAnimations() {
 // Periodically check for active/inactive form steps
 setInterval(monitorLiquidAnimations, 200);
 
+//
 
+
+//
   // Code to change Radio button color state
   document.addEventListener("DOMContentLoaded", function () {
     const radioInputs = document.querySelectorAll('input[type="radio"]');
@@ -1133,7 +1146,7 @@ setInterval(monitorLiquidAnimations, 200);
       });
     });
   });
-
+//
 
 
 
@@ -1150,6 +1163,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+//
+
+
 
 //confetti animation
 function launchConfetti() {
@@ -1183,7 +1199,7 @@ function launchConfetti() {
     });
   }, 250);
 }
-
+//
 
 
 //Faux radio button code
@@ -1243,9 +1259,9 @@ document.addEventListener('DOMContentLoaded', () => {
     input.click();
   });
 });
+//
 
-
-
+//
 // Loading Animation Unique ID script
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -1268,6 +1284,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-
-
