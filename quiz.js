@@ -1286,23 +1286,3 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 //
 
-
-document.addEventListener('DOMContentLoaded', function () {
-  /* ---------- 1) Fill language input ---------- */
-  (function fillLanguageInput() {
-    try {
-      const input = document.getElementById('language-type');
-      if (!input) return;
-      // get first non-empty segment from pathname
-      const seg = window.location.pathname.split('/').filter(Boolean)[0] || '';
-      // validate segment is 2 letters (common language code) else just use seg
-      const lang = /^[a-zA-Z]{2}$/.test(seg) ? seg.toLowerCase() : seg.toLowerCase();
-      input.value = lang;
-      // keep input attribute in sync for libraries that read attributes:
-      input.setAttribute('value', lang);
-    } catch (e) {
-      console.warn('language fill failed', e);
-    }
-  })();
-
- 
