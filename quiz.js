@@ -2,6 +2,51 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Load saved progress on page load
   const savedProgress = JSON.parse(localStorage.getItem("quizProgress"));
+
+  // Language detection and Input code
+function fillLanguageInputFromURL() {
+  const input = document.getElementById('language-type');
+  if (!input) return;
+
+  // 1) Try first path segment: /en/... or /en
+  const path = (location.pathname || '').replace(/^\/+|\/+$/g, '').split('/');
+  const first = path[0] || '';
+
+  // Accept patterns like "en", "en-US", "pt", "ro", etc.
+  const pathMatch = first && (/^[a-z]{2}(?:-[A-Za-z]{2})?$/.test(first) ? first : null);
+
+  // 2) If not found, try subdomain (en.example.com)
+  let subMatch = null;
+  try {
+    const host = location.hostname || '';
+    const hostParts = host.split('.');
+    if (hostParts.length >= 3) {
+      const maybe = hostParts[0];
+      if (/^[a-z]{2}(?:-[A-Za-z]{2})?$/.test(maybe)) subMatch = maybe;
+    }
+  } catch (e) { /* ignore */ }
+
+  // 3) If not found, try <html lang="...">
+  const htmlLang = document.documentElement && document.documentElement.lang;
+  const htmlMatch = htmlLang && (/^[a-z]{2}(?:-[A-Za-z]{2})?$/.test(htmlLang) ? htmlLang : null);
+
+  // 4) Choose detected or fallback to English
+  const lang = pathMatch || subMatch || htmlMatch || 'en';
+
+  // Set the input's value and trigger input/change
+  input.value = lang;
+  input.setAttribute('value', lang);
+  input.dispatchEvent(new Event('input', { bubbles: true }));
+  input.dispatchEvent(new Event('change', { bubbles: true }));
+
+  // ✅ Log detected language for testing
+  console.log(`[Language Detection] Found language: "${lang}" from URL "${location.href}"`);
+}
+
+// Call it immediately (inside DOMContentLoaded)
+fillLanguageInputFromURL();
+
+
   
   const genderSelectorWrap = document.querySelector(".form_step_wrap.gender_selector");
   const maleWrap = document.querySelector(".form_step_wrap.male");
